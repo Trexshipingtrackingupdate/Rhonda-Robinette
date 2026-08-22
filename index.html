@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DHL Shipment Tracking</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+min-height:100vh;
+
+display:flex;
+flex-direction:column;
+
+}
+
+
+header{
+
+background:#ffcc00;
+
+padding:18px 40px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+box-shadow:0 4px 20px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+}
+
+.logo img{
+
+width:70px;
+
+margin-right:18px;
+
+}
+
+.logo h2{
+
+font-size:30px;
+
+color:#c40000;
+
+font-weight:700;
+
+}
+
+nav a{
+
+text-decoration:none;
+
+color:#222;
+
+margin-left:30px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#c40000;
+
+}
+
+.hero{
+
+flex:1;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:40px;
+
+}
+
+.card{
+
+width:100%;
+
+max-width:520px;
+
+background:rgba(255,255,255,.95);
+
+backdrop-filter:blur(12px);
+
+padding:45px;
+
+border-radius:20px;
+
+box-shadow:0 25px 60px rgba(0,0,0,.30);
+
+}
+
+.card h1{
+
+font-size:34px;
+
+margin-bottom:12px;
+
+color:#222;
+
+}
+
+.card p{
+
+color:#666;
+
+margin-bottom:30px;
+
+line-height:1.6;
+
+}
+
+.input-group{
+
+position:relative;
+
+margin-bottom:25px;
+
+}
+
+.input-group input{
+
+width:100%;
+
+padding:18px 18px 18px 60px;
+
+font-size:17px;
+
+border:2px solid #ddd;
+
+border-radius:12px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.input-group input:focus{
+
+border-color:#ffcc00;
+
+box-shadow:0 0 0 4px rgba(255,204,0,.25);
+
+}
+
+.input-group i{
+
+position:absolute;
+
+left:20px;
+
+top:18px;
+
+font-size:22px;
+
+color:#999;
+
+}
+
+button{
+
+width:100%;
+
+padding:17px;
+
+border:none;
+
+border-radius:12px;
+
+background:#d40511;
+
+color:white;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#b1030d;
+
+transform:translateY(-2px);
+
+box-shadow:0 10px 20px rgba(0,0,0,.20);
+
+}
+
+.notice{
+
+margin-top:22px;
+
+font-size:14px;
+
+color:#666;
+
+line-height:1.7;
+
+}
+
+footer{
+
+background:#111;
+
+color:#aaa;
+
+padding:18px;
+
+text-align:center;
+
+font-size:14px;
+
+}
+
+@media(max-width:650px){
+
+header{
+
+padding:15px;
+
+flex-direction:column;
+
+}
+
+nav{
+
+margin-top:12px;
+
+}
+
+nav a{
+
+margin:0 10px;
+
+}
+
+.card{
+
+padding:30px;
+
+}
+
+.card h1{
+
+font-size:28px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<img src="https://img.icons8.com/ios-filled/50/C9030C/water-transportation.png"
+     alt="Ship"
+     width="28"
+     height="28">
+
+<h2>TREX Shipping</h2>
+
+</div>
+
+<nav>
+
+<a href="#">Tracking</a>
+
+<a href="#">Shipping</a>
+
+<a href="#">Support</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="card">
+
+<h1>Track Your Shipment</h1>
+
+<p>
+Enter your shipment tracking number below to obtain the latest delivery status,
+transit history, and estimated delivery information.
+</p>
+
+<div class="input-group">
+
+<span style="position:absolute;left:22px;top:18px;font-size:22px;">📦</span>
+
+<input
+type="text"
+id="trackingNumber"
+placeholder="Enter Tracking Number">
+
+</div>
+
+<button onclick="trackShipment()">
+Track Shipment
+</button>
+
+<div class="notice">
+
+Please verify that your tracking number has been entered correctly.
+If you continue experiencing issues locating your shipment,
+contact the sender or customer service for assistance.
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 TREX Shipping. Shipment Tracking Portal.
+
+</footer>
+
+<script>
+
+const validTrackingNumbers = {
+
+"TREX651298374DE":"upspittdashboard.html"
+
+};
+
+function trackShipment(){
+
+const tracking=document.getElementById("trackingNumber").value.trim();
+
+if(tracking===""){
+
+alert("Please enter a tracking number.");
+
+return;
+
+}
+
+if(validTrackingNumbers[tracking]){
+
+window.location.href=validTrackingNumbers[tracking];
+
+}
+
+else{
+
+alert("The tracking number entered could not be located. Please verify the number and try again.");
+
+}
+
+}
+
+document.getElementById("trackingNumber").addEventListener("keypress",function(e){
+
+if(e.key==="Enter"){
+
+trackShipment();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

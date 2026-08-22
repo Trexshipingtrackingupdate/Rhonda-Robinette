@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shipment Tracking Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#eef2f7;
+    font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+    color:#333;
+}
+
+.header{
+    background:#FFCC00;
+    color:#D40511;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.18);
+    border-bottom:4px solid #D40511;
+}
+
+.header h1{
+    font-size:34px;
+    letter-spacing:1px;
+    font-weight:700;
+    color:#D40511;
+}
+
+.header p{
+    margin-top:8px;
+    color:#B00000;
+    font-size:15px;
+    font-weight:500;
+}
+
+
+
+.container{
+    width:95%;
+    max-width:1300px;
+    margin:30px auto;
+}
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.card{
+    background:#ffffff;
+    border-radius:12px;
+    padding:24px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    border-top:6px solid #D40511;
+    transition:.3s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:#FFCC00;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+.card h3{
+    color:#D40511;
+    margin-bottom:18px;
+    font-size:19px;
+    border-bottom:2px solid #FFCC00;
+    padding-bottom:10px;
+}
+
+.card p{
+    margin:12px 0;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.label{
+    color:#555;
+    font-weight:700;
+}
+
+.status-banner{
+    background:linear-gradient(90deg,#D40511,#B00000);
+    color:#fff;
+    padding:18px;
+    border-radius:10px;
+    margin-bottom:25px;
+    font-size:18px;
+    text-align:center;
+    font-weight:700;
+    box-shadow:0 6px 15px rgba(212,5,17,.25);
+    letter-spacing:.5px;
+}
+
+.table-box{
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    border:1px solid #e5e5e5;
+}
+
+.table-header{
+    background:#FFCC00;
+    color:#D40511;
+    padding:20px;
+    font-size:22px;
+    font-weight:700;
+    border-bottom:4px solid #D40511;
+    letter-spacing:.5px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+thead{
+    background:#FFF5CC;
+}
+
+thead th{
+    padding:18px;
+    text-align:left;
+    color:#D40511;
+    font-size:15px;
+    text-transform:uppercase;
+    border-bottom:2px solid #FFCC00;
+}
+
+tbody td{
+    padding:18px;
+    border-bottom:1px solid #ececec;
+    vertical-align:top;
+    font-size:15px;
+}
+
+tbody tr:nth-child(even){
+    background:#fffdf4;
+}
+
+tbody tr:hover{
+    background:#FFF3BF;
+    transition:.25s;
+}
+
+.status{
+    color:#0E8A16;
+    font-weight:700;
+}
+.location{
+    display:inline-block;
+    background:#FFCC00;
+    color:#B00000;
+    padding:6px 12px;
+    border-radius:20px;
+    font-weight:600;
+    font-size:13px;
+}
+.footer{
+    margin-top:30px;
+    background:#FFCC00;
+    color:#D40511;
+    padding:22px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    text-align:center;
+    font-weight:600;
+    border-top:4px solid #D40511;
+}
+
+@media(max-width:768px){
+
+.header h1{
+    font-size:26px;
+}
+
+table{
+    font-size:14px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>Shipment Tracking Portal</h1>
+<p>International Logistics & Freight Monitoring Dashboard</p>
+</div>
+
+<div class="container">
+
+<div class="status-banner">
+Current Shipment Status:
+Export Customs Processing Completed
+</div>
+
+<div class="summary">
+
+<div class="card">
+<h3>Shipment Information</h3>
+
+<p><span class="label">Tracking Number:</span><br>
+TREX651298374DE</p>
+
+<p><span class="label">Shipment Type:</span><br>
+Discreet Precious Metal Transport</p>
+
+<p><span class="label">Service:</span><br>
+Priority International Freight</p>
+
+</div>
+
+<div class="card">
+
+<h3>Sender Details</h3>
+
+<p><span class="label">Sender</span><br>
+Dominic Harrison</p>
+
+<p><span class="label">Origin</span><br>
+Camden town,London</p>
+
+<p><span class="label">Package Condition</span><br>
+Securely Sealed</p>
+
+</div>
+
+<div class="card">
+
+<h3>Receiver Details</h3>
+
+<p><span class="label">Recipient</span><br>
+Rhonda Robinette</p>
+
+<p><span class="label">Email</span><br>
+rhondalrobinette925@gmail.com</p>
+
+<p><span class="label">Phone</span><br>
++1 (419) 721- 7634</p>
+
+<p><span class="label">Destination</span><br>
+229 South Adams Street Fostoria, Ohio 44830</p>
+
+</div>
+
+</div>
+
+<div class="table-box">
+
+<div class="table-header">
+Shipment Movement History
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date</th>
+
+<th>Shipment Status</th>
+
+<th>Current Location</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>18/08/26</td>
+
+<td class="status">
+Shipment Information Received
+</td>
+
+<td>CAMDEN TOWN, LONDON</td>
+
+</tr>
+
+<tr>
+
+<td>18/08/26</td>
+
+<td class="status">
+Package Accepted by Carrier
+</td>
+
+<td>CAMDEN TOWN, LONDON</td>
+
+</tr>
+
+<tr>
+
+<td>18/08/26</td>
+
+<td class="status">
+Origin Facility Processing Completed
+</td>
+
+<td>CAMDEN TOWN, LONDON</td>
+
+</tr>
+
+<tr>
+
+<td>18/08/26</td>
+
+<td class="status">
+Export Customs Processing Completed
+</td>
+
+<td>CAMDEN TOWN, LONDON</td>
+
+</tr>
+
+
+
+<td>19/08/26</td>
+
+<td class="status">
+In transit to international gateway
+</td>
+
+<td>LONDON, UNITED KINGDOM </td>
+
+</tr>
+<tr>
+
+<td>19/08/26</td>
+
+<td class="status">
+Shipment arrived at the international air cargo gateway and entered outbound consolidation
+</td>
+
+<td>LONDON, UNITED KINGDOM</td>
+
+</tr>
+<tr>
+
+<td>19/08/26</td>
+
+<td class="status">
+Security screening completed
+</td>
+
+<td>LONDON, UNITED KINGDOM</td>
+
+</tr>
+<td>20/08/26</td>
+
+<td class="status">
+Consolidated for air transportation
+</td>
+
+<td>LONDON, UNITED KINGDOM</td>
+
+</tr>
+<td>20/08/26</td>
+
+<td class="status">
+Shipment departed the United Kingdom and is currently in international transit to the United States.
+</td>
+
+<td>LONDON, UNITED KINGDOM</td>
+
+</tr>
+<td>22/08/26</td>
+
+<td class="status">
+Shipment is moving through the international transportation network toward its U.S. gateway
+</td>
+
+<td>INTERNATIONAL TRANSIT
+</td>
+</tr>
+<td>22/08/26</td>
+
+
+<td class="status">
+Shipment arrived at the designated U.S. gateway and has been transferred into the inbound processing network
+</td>
+
+<td>UNITED STATES
+
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="footer">
+
+Tracking updates are generated as shipment checkpoints are completed.
+Please monitor this page regularly for the latest movement history.
+
+</div>
+
+</div>
+
+</body>
+</html>
